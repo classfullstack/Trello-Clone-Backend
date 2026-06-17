@@ -17,4 +17,4 @@ COPY src ./src
 USER node
 
 EXPOSE 4000
-CMD ["node", "src/index.js"]
+CMD ["node", "--import", "./src/observability/tracing.js", "src/index.js"]

@@ -11,6 +11,10 @@ const boolish = (def) =>
 const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().default(4000),
+  // Observability
+  LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
+  SERVICE_VERSION: z.string().default("0.0.0"),
+  OTEL_EXPORTER_OTLP_ENDPOINT: z.string().default(""),
   DATABASE_URL: z.string().min(1),
   REDIS_URL: z.string().min(1),
   JWT_SECRET: z.string().min(1),

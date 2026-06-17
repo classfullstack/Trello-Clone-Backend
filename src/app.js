@@ -5,6 +5,8 @@ import { dbHealthy } from "./config/db.js";
 import { redisHealthy } from "./config/redis.js";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
 import { sanitizeBody } from "./middleware/sanitize.js";
+import { metricsMiddleware, metricsHandler } from "./observability/metrics.js";
+import { httpLogger } from "./observability/httpLogger.js";
 import { authRouter } from "./modules/auth/auth.routes.js";
 import { usersRouter } from "./modules/users/users.routes.js";
 import { workspacesRouter } from "./modules/workspaces/workspaces.routes.js";
@@ -32,6 +34,9 @@ export function createApp() {
   const app = express();
 
   app.set("trust proxy", true);
+  app.get("/metrics", metricsHandler);
+  app.use(metricsMiddleware);
+  app.use(httpLogger);
   app.use(express.json({ limit: "1mb" }));
   app.use(sanitizeBody);
   app.use(cookieParser());

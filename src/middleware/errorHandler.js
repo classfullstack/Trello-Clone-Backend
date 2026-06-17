@@ -1,11 +1,12 @@
 import { ZodError } from "zod";
 import { AppError } from "../lib/errors.js";
+import { logger } from "../observability/logger.js";
 
 export const notFoundHandler = (_req, res) => {
   res.status(404).json({ error: "NOT_FOUND", message: "Route not found" });
 };
 
-export const errorHandler = (err, _req, res, _next) => {
+export const errorHandler = (err, req, res, _next) => {
   if (err instanceof ZodError) {
     res.status(400).json({
       error: "VALIDATION_ERROR",
@@ -18,7 +19,7 @@ export const errorHandler = (err, _req, res, _next) => {
     res.status(err.status).json({ error: err.code, message: err.message });
     return;
   }
-  console.error("Unhandled error:", err);
+  (req?.log || logger).error({ err }, "Unhandled error");
   res.status(500).json({ error: "INTERNAL_ERROR", message: "Internal server error" });
 };
 
