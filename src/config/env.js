@@ -41,7 +41,7 @@ const schema = z.object({
   SMTP_SECURE: boolish(false),
   SMTP_USER: z.string().default(""),
   SMTP_PASS: z.string().default(""),
-  SMTP_FROM: z.string().default("Trello Clone <no-reply@trello.local>"),
+  SMTP_FROM: z.string().default("Code Web Không Khó <no-reply@trello.local>"),
   ENABLE_WORKERS: boolish(true),
   // Zalo bot + DeepSeek chatbot (set in server .env, never commit)
   DEEPSEEK_API_KEY: z.string().default(""),

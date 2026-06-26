@@ -7,7 +7,7 @@ const LANDING_KEY = "landing";
 const IMAGE_PUT_EXPIRY = 5 * 60; // seconds
 
 export const LANDING_DEFAULTS = {
-  brand: { name: "Trello Clone" },
+  brand: { name: "Code Web Không Khó" },
   chatbot: {
     enabled: true,
     title: "Hỏi đáp nhanh với Trợ lý AI trên Zalo",
@@ -75,7 +75,7 @@ export const LANDING_DEFAULTS = {
   ],
   footer: {
     tagline: "The flexible way to plan, track, and ship work.",
-    copyright: "© Trello Clone. All rights reserved.",
+    copyright: "© Code Web Không Khó. All rights reserved.",
   },
 };
 

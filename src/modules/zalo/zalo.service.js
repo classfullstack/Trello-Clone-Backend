@@ -4,7 +4,7 @@ const ZALO_BASE = "https://bot-api.zaloplatforms.com";
 const DEEPSEEK_URL = "https://api.deepseek.com/chat/completions";
 
 // Kiến thức nền về dự án để bot trả lời "thông tin dự án".
-const PROJECT_CONTEXT = `Bạn là trợ lý ảo của dự án "Trello Clone" — công cụ quản lý công việc dạng bảng (giống Trello).
+const PROJECT_CONTEXT = `Bạn là trợ lý ảo của dự án "Code Web Không Khó" — công cụ quản lý công việc dạng bảng (giống công cụ quản lý công việc dạng bảng).
 Thông tin dự án:
 - Sản phẩm: quản lý công việc theo Workspace (công ty) > Board (dự án) > List (cột: Cần làm/Đang làm/Review/Hoàn thành) > Card (đầu việc).
 - 2 ứng dụng: App người dùng (tạo bảng, kéo thả thẻ, giao việc, bình luận, đính kèm) và Trang quản trị (quản người dùng, workspace, dung lượng, sao lưu, thống kê).
@@ -104,7 +104,7 @@ export async function handleUpdate(update) {
       return;
     }
     if (text.startsWith("/start")) {
-      await sendMessage(chatId, "Xin chào! Mình là trợ lý dự án Trello Clone. Hỏi mình bất cứ điều gì về dự án nhé.");
+      await sendMessage(chatId, "Xin chào! Mình là trợ lý dự án Code Web Không Khó. Hỏi mình bất cứ điều gì về dự án nhé.");
       return;
     }
     await sendChatAction(chatId, "typing"); // hiển thị "đang soạn tin"

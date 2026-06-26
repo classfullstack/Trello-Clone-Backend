@@ -5,7 +5,7 @@ const wrap = (title, body) => `
     <h2 style="color:#0079bf">${title}</h2>
     ${body}
     <hr style="border:none;border-top:1px solid #dfe1e6;margin:24px 0" />
-    <p style="font-size:12px;color:#6b778c">Trello Clone</p>
+    <p style="font-size:12px;color:#6b778c">Code Web Không Khó</p>
   </div>`;
 
 const btn = (href, label) =>
@@ -34,7 +34,7 @@ export function renderEmail(kind, data = {}) {
       const url = `${env.APP_URL}`;
       return {
         subject: "You were invited to a workspace",
-        html: wrap("Workspace invite", `<p>You were invited to a workspace.</p><p>${btn(url, "Open Trello Clone")}</p>`),
+        html: wrap("Workspace invite", `<p>You were invited to a workspace.</p><p>${btn(url, "Open Code Web Không Khó")}</p>`),
         text: `You were invited to a workspace: ${url}`,
       };
     }
